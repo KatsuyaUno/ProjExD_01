@@ -8,10 +8,13 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")
 
+    images=list()
+    
     kton_img= pg.image.load("ex01/fig/3.png")
     kton_img= pg.transform.flip(kton_img, True, False) 
-    #kk_img= pg.transform.rotozoom(kk_img, 10, 1.0)
-
+    kton2_img= pg.transform.rotozoom(kton_img, 10, 1.0)
+    images.append(kton_img)
+    images.append(kton2_img) 
     tmr = 0
 
     while True:
@@ -19,10 +22,10 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [0, 0])
-        screen.blit(kton_img, [100, 200])
+        #screen.blit(images[tmr%2],[300,200])
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(50)
 
 
 if __name__ == "__main__":
