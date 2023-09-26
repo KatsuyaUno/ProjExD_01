@@ -17,15 +17,20 @@ def main():
     images.append(kton2_img) 
     tmr = 0
 
+    x = 0
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        screen.blit(bg_img, [x, 0])
         screen.blit(images[tmr%2],[300,200])
         pg.display.update()
-        tmr += 1        
-        clock.tick(50)
+        tmr += 1 
+        x -= 1
+        if(x+1600==0):
+            x = 0
+        clock.tick(200)
 
 
 if __name__ == "__main__":
